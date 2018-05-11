@@ -1,4 +1,4 @@
-package bibliaficheros;
+package guiaficheros;
 
 import java.util.Scanner;
 

@@ -10,29 +10,33 @@ import java.util.Scanner;
 
 public class FicheroBytes {
 
+
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 
 	String archivo;
-	System.out.println("Escribe texto del fichero");
+	String texto;
+	
 	System.out.println("Escribe el nombre del fichero");
 	archivo=in.next();
-	File file = new File(archivo);
+	File f = new File(archivo);
 	try {
-		if (file.createNewFile()) {
-			System.out.println("File creado correctamente");
-			/*try {
-				FileOutputStream fos = new FileOutputStream(f);//objeto grabar
-				if (f.exists()) {
-					
+				System.out.println("Comprobando si existe...");
+				if (!f.exists()) {
+					System.out.println("El fichero No existe asi que lo creamos");
+					FileOutputStream fos = new FileOutputStream(f);//objeto grabar
+					if (f.exists()) {
+						System.out.println("Fichero creado");
+						System.out.println("Escribe texto del fichero");
+						texto=in.next();
+						char c[] =texto.toCharArray();
+						for (int i = 0; i < c.length; i++) {
+							fos.write((byte)c[i]);
+						}
+						
+					}
 				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}*/
-			
-
-			
-		}else {
+			else {
 			int opcion;
 			do {
 				do {
@@ -43,7 +47,7 @@ public static void main(String[] args) {
 				switch (opcion) {
 				case 1:
 					System.out.println("Reescribir");
-					FileOutputStream f=null;
+					//FileOutputStream f=null;
 					System.out.println("Introduce la cadena de texto a grabar");
 					String cad=in.next();
 				

@@ -1,4 +1,4 @@
-package bibliaficheros;
+package guiaficheros;
 
 import java.util.Scanner;
 
@@ -24,6 +24,7 @@ public class Principal {
 				break;
 			case 2:
 				//objeto.metodo(in);
+				
 				break;
 			case 3:
 				//objeto.metodo(in);;
