@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FicheroBytess {
+public class FicheroBytes {
 	public static void main(String[] args)  {
 		Scanner in = new Scanner(System.in);
 		String cadena,nombreFich;
