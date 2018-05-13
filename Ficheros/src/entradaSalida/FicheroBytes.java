@@ -12,57 +12,84 @@ public class FicheroBytes {
 
 
 public static void main(String[] args) {
+	
 	Scanner in = new Scanner(System.in);
-
-	String archivo;
-	String texto;
+	String texto,nombreFich;
+	System.out.println("Escribe el texto que va contener el fichero");
+	texto=in.nextLine();
+	System.out.println("Escribe el nombre del fichero");
+	nombreFich=in.nextLine();
+	File f = new File(nombreFich);// defino la ubicacion
+	FileOutputStream fos;;
+	int opcion;
 	
 	System.out.println("Escribe el nombre del fichero");
-	archivo=in.next();
-	File f = new File(archivo);
+
 	try {
 				System.out.println("Comprobando si existe...");
 				if (!f.exists()) {
 					System.out.println("El fichero No existe asi que lo creamos");
-					FileOutputStream fos = new FileOutputStream(f);//objeto grabar
+					 fos = new FileOutputStream(f);//objeto grabar
 					if (f.exists()) {
 						System.out.println("Fichero creado");
-						System.out.println("Escribe texto del fichero");
-						texto=in.next();
+
+				
 						char c[] =texto.toCharArray();
+						System.out.println(texto);
+						System.out.println(texto.length());
 						for (int i = 0; i < c.length; i++) {
 							fos.write((byte)c[i]);
 						}
 						
+						
 					}
-				}
-			else {
-			int opcion;
-			do {
-				do {
-					System.out.println("El fichero ya existe elige una opción:" + "\n	1. Grabar." + "\n	2. Añadir texto." + "\n	3. Atras.");
-					opcion = in.nextInt();
-				} while (opcion < 1 || opcion > 3);
-
-				switch (opcion) {
-				case 1:
-					System.out.println("Reescribir");
-					//FileOutputStream f=null;
-					System.out.println("Introduce la cadena de texto a grabar");
-					String cad=in.next();
-				
 					
-					break;
-				case 2:
-					System.out.println("Añadir texto al final del fichero");
-					break;
-
-				default:
-					break;
 				}
 
-			} while (opcion != 3);//
-		}
+				do {
+					do {
+
+						System.out.println("elige una opción:" + "\n	1. Grabar." + "\n	2. Añadir texto." + "\n	3. Atras.");
+						opcion = in.nextInt();
+						System.out.println("Escribe un palabrsfds");
+						/*String palabrea=in.nextLine();
+						System.out.println(palabrea+"ea");*/
+						
+
+					switch (opcion) {
+					case 1:
+						System.out.println("Escribe un palabro");
+						 texto=in.nextLine();
+						
+					System.out.println("Grabando...");
+
+						fos = new FileOutputStream(nombreFich);
+						 char c[] =texto.toCharArray();
+							System.out.println(texto);
+							System.out.println(texto.length());
+							for (int i = 0; i < c.length; i++) {
+								fos.write((byte)c[i]);
+							}
+						
+						 
+
+						 
+						break;
+					case 2:
+/*						System.out.println("Añadiendo al final der archivo...");
+						fos = new FileOutputStream(nombreFich,true);*/
+			/*			char c[] =texto.toCharArray();
+						System.out.println(texto);
+						System.out.println(texto.length());
+						for (int i = 0; i < c.length; i++) {
+							fos.write((byte)c[i]);*/
+						break;
+
+					default:
+						break;
+					}
+					} while (opcion < 1 || opcion > 3);
+				} while (opcion != 3);//
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

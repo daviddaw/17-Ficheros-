@@ -84,8 +84,9 @@ public class Ejercicio1y2 {
 			
 
 		if (!(file.exists())) {
-			ExcepcionficheroNoExiste e= new ExcepcionficheroNoExiste("Excepcion Fichero No Existe");
-			throw e;
+			//ExcepcionficheroNoExiste e= new ExcepcionficheroNoExiste("Excepcion Fichero No Existe");
+			//throw e;
+			System.out.println("No existe");
 		}else {
 			 Date date = new Date(file.lastModified());
 
