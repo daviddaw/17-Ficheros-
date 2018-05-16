@@ -27,13 +27,13 @@ public class Principal {
     public static void main(String[] args)  {
     	File archivo;
         try {
-        	archivo=new File("C:/Users/Daveto/OneDrive/Documents/archivo2.txt");
+        	archivo=new File("archi.txt");
         	if (archivo.createNewFile()) {
 				System.out.println("Se ha creado el archivo");
 			}else {
 				System.out.println("No se ha podido crear es posible que ya exista");
 			}
-			muestraContenido("C:/Users/Daveto/OneDrive/Documents/archivo.txt");//le pasamos un archivo que en este caso es la ruta
+			muestraContenido("archi.txt");//le pasamos un archivo que en este caso es la ruta
 			
 		} catch (IOException e) {//cogeremos los errores con el objeto e
 			// TODO Auto-generated catch block

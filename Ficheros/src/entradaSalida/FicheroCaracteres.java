@@ -1,6 +1,8 @@
 package entradaSalida;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -11,13 +13,13 @@ public class FicheroCaracteres {
 		Scanner in = new Scanner(System.in);
 		//apartado a
 		System.out.println("Escribe el texto del fichero");
-		String cadena =in.nextLine();
+		String cadena =in.nextLine().toUpperCase();
 		//apartado b
 		System.out.println("Escribe el nombre del fichero");
 		String nombre=in.nextLine();
 		File f = new File(nombre);
 		FileWriter fw =null;
-		char[] buffer=new char[50];
+		char[] buffer=new char[100];
 		//apartado d
 		if (!(f.exists())) {
 			System.out.println("No existe el archivo, vamos a crearlo");
@@ -26,6 +28,7 @@ public class FicheroCaracteres {
 				 fw = new FileWriter(f);
 				buffer=cadena.toCharArray();
 				fw.write(buffer);
+			//	fw.write(cadena);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				System.out.println(e);
@@ -50,8 +53,8 @@ public class FicheroCaracteres {
 				switch (opcion) {
 				case 1:
 					 try {
-						 System.out.println("Escribe el nuevo texto");
-						 cadena=in.nextLine();
+						 System.out.println("Escribe un texto");
+						 cadena=in.nextLine().toUpperCase();
 						 fw = new FileWriter(f);
 						 buffer=cadena.toCharArray();
 						 fw.write(buffer);
@@ -71,8 +74,8 @@ public class FicheroCaracteres {
 					break;
 				case 2:
 					 try {
-						 System.out.println("Escribe el nuevo texto");
-						 cadena=in.nextLine();
+						 System.out.println("Escribe el nuevo texto para añadirlo");
+						 cadena=in.nextLine().toUpperCase();
 						 fw = new FileWriter(f,true);
 						 buffer=cadena.toCharArray();
 						 fw.write(buffer);
@@ -94,7 +97,28 @@ public class FicheroCaracteres {
 				}
 
 			} while (opcion != 3);//
-
+			FileReader fr =null;
+			
+			try {
+				 fr = new FileReader(f);
+					
+				fr.read(buffer);
+				System.out.println(buffer); //Falla
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				try {
+					fr.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		
 		
 		
