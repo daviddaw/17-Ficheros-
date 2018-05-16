@@ -14,10 +14,10 @@ public class ContarLineas {
     public static void main(String[] args)  {
     	Scanner in = new Scanner(System.in);
 
-		in.close();
+		
 
     	File archivo;
-    	BufferedWriter bw;
+    	BufferedWriter bw = null;
         try {
         	archivo=new File("archivo10.txt");
         	if (archivo.createNewFile()) {
@@ -25,21 +25,24 @@ public class ContarLineas {
 			}else {
 				System.out.println("No se ha podido crear es posible que ya exista");
 			}
-			contarLineas("archivo10.txt");//le pasamos un archivo que en este caso es la ruta
+			//contarLineas("archivo10.txt");//le pasamos un archivo que en este caso es la ruta
 			
 			bw=new BufferedWriter(new FileWriter(archivo));
 			String cad;
 			
-			System.out.println("introduce enteros para acabar *");
-			cad=in.nextLine();
+			System.out.println("introduce cadena  *");
+			//cad=in.nextLine();
+			//in.nextLine();
 			int contador=1;
+			cad=in.nextLine();
 			while (!cad.equals("*")) {
 				
-				bw.write(cad);
+				bw.write(contador+cad);
 				bw.newLine();
 				cad=in.nextLine();
 				contador++;
 			}
+			System.out.println("El archivo tiene "+contador+" lineas");
 			
 			
 			
@@ -49,7 +52,19 @@ public class ContarLineas {
 			// TODO Auto-generated catch block
 			System.out.println("Mensaje: " + e.getMessage());//imprimimos el mensaje de error
 		}
-     
+        finally {
+			
+				try {
+					if (bw!=null) {
+					bw.close();
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		
+        in.close();
     }
     
     
