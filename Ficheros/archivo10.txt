@@ -1,3 +1,2 @@
-1hola 
-2esta es la linea 2 
-3y esta es la linea3
+1hola hector
+2comoestas

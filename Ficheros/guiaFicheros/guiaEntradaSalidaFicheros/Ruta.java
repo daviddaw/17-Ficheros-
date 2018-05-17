@@ -1,4 +1,4 @@
-package guiaficheros;
+package guiaEntradaSalidaFicheros;
 
 import java.util.Scanner;
 

@@ -1,14 +1,14 @@
-package guiaficheros;
+package guiaEntradaSalidaFicheros;
 
 import java.util.Scanner;
 
-public class Principal {
-	public static void main(String[] args) {
-		//objeto
-		Ruta ruta = new Ruta();
-		Scanner in = new Scanner(System.in);
-		int opcion;
+public class ArchivosYDirectorios {
 
+	
+
+	public void ejemplos(Scanner in) {
+		Ruta ruta = new Ruta();
+		int opcion;
 		do {
 			do {
 				System.out.println(
@@ -37,9 +37,15 @@ public class Principal {
 				break;
 
 			}
-		} while (opcion != 6);
+		
+		
 
-		in.close();
-	}
-
+		in.close();		
+	} while (opcion != 6);
 }
+
+	
+}
+
+	
+
