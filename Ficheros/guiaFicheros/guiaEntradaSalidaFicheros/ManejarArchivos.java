@@ -3,6 +3,8 @@ package guiaEntradaSalidaFicheros;
 import java.util.Scanner;
 
 public class ManejarArchivos {
+	ArchivosByte archivosByte = new ArchivosByte();
+	ArchivosCaracteres archivosCarcteres = new ArchivosCaracteres();
 	public void ejemplo(Scanner in) {
 	int opcion;
 	do {
@@ -14,9 +16,10 @@ public class ManejarArchivos {
 		switch (opcion) {
 		case 1:
 			System.out.println("Clases FileInputStream y FileOutputStream");
-			break;
+			archivosByte.ejemplos();
 		case 2:
 			System.out.println("Clases FileReader y FileWriter");
+			archivosCarcteres.ejemplos();
 			break;
 		case 3:
 			System.out.println("mas carcteristicas añadidas	");
